@@ -1,0 +1,11 @@
+	org &4000
+
+	read "TEXTE_DEFAITE.ASM"
+	read "TEXTE_INTRO.ASM"
+	read "TEXTE_JOUTE.ASM"
+	read "TEXTE_MAIN.ASM"
+	read "TEXTE_MENUS.ASM"
+	read "TEXTE_RAID.ASM"
+	read "TEXTE_ROBIN.ASM"
+	read "TEXTE_SIEGE.ASM"
+	read "TEXTE_VICTOIRE.ASM"

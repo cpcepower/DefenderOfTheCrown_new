@@ -1,0 +1,59 @@
+#BB1E - KM TEST KEY
+#BB24 - KM GET JOYSTICK
+
+&BB54 - TXT VDU ENABLE
+&BB57 - TXT VDU DISABLE
+
+#BC0E - SCR SET MODE
+#BC14 - SCR CLEAR
+#BC1D - SCR DOT POSITION
+#BC32 - SCR SET INK
+#BC38 - SCR SET BORDER
+#BC3E - SCR SET FLASHING
+
+&BC77 - CAS IN OPEN
+&BC7D - CAS IN ABANDON
+&BC83 - CAS IN DIRECT
+
+#BCA7 - SOUND RESET
+
+#BCE9 - KL ADD TICKER
+#BCEC - KL DEL TICKER
+#BCEF - KL INIT EVENT
+#BCF8 - KL DEL SYNCHRONOUS
+
+#BD2B - MC PRINT CHAR
+#BD19 - MC WAIT FLYBACK
+#BD1C - MC SET MODE
+
+ROBIN.ASM -> useless CALL ON after CALL LOADMUS
+BIBLI.ASM.WRTAB16() do push af and pop af but don't use af
+BIBLI.ASM.WRTAB16() used 1 time -> integrated in TXT.ASM.DELIM()
+BIBLI.ASM.INDIR() do XOR  A and JP   RDTAB16 -> placed just before RDTAB16 to avoid jump
+BILBI.ASM.INDIR() not used -> deleted
+LINK.ASM added a macro for link declaration and merged jump declaration with conditional in main.asm
+SCR.ASM.SAVESCR() not used -> deleted
+SCR.ASM.RESTSCR() not used -> deleted
+DIVERS.ASM RGETINC() used 1 time -> integrated in EVENT.ASM
+DIVERS.ASM.RGETVASS() not used -> deleted
+DIVERS.ASM.SALAIRE() used 1 time -> integrated in DIVERS.ASM.MONEYIN()
+DIVERS.ASM.ISHERE() used 1 time -> integrated in DIVERS.ASM.LORDHERE()
+DIVERS.ASM.ISSAX() used 1 time -> integrated in SQUELET.ASM.OBJTYPE()
+DIVERS.ASM.LTESTARM() used 1 time -> integrated in SQUELET.ASM.MVNOTAMI()
+DIVERS.ASM.REG_REG() used 1 time -> integrated in DIVERS.ASM.AFFMAP()
+DIVERS.ASM.REG_FAC() used 1 time -> integrated in DIVERS.ASM.AFFMAP()
+DIVERS.ASM.REG_DAT() used 1 time -> integrated in DIVERS.ASM.AFFMAP()
+JOUTE.ASM.JOUTINIT() used 1 time -> integrated in JOUTE.ASM.JOUTE()
+JOUTE.ASM.JOUTRUMP() used 1 time -> integrated in JOUTE.ASM.JOUTE()
+JOUTE.ASM.VIEWJOUT() useless code that can do a bug after SIDEBCL
+INTRO.ASM.CHOOSEB() -> replaced by choose in divers.asm (also there is a little bug in it ld hl,(lord) ld (hl),a instead of ld (lord),a !!!)
+SCR.ASM.LOADSCR() -> SCR.ASM.load_decomp_scr() 
+SCR.ASM.AFFIMA() used 1 time -> integrated in INTRO.ASM.()
+POLICE.ASM.WRCHAR() replaced the call to BC26 by a call to NEXTLINE()
+POLICE.ASM.WRCHAR() -> optimize !!!
+POLICE.ASM._lbc1a() added to avoid some time to call this function with firmware
+RAID.ASM.VUFILL() -> used 1 time -> integrated in RAID.ASM.VUMETRE()
+POLICE.ASM._lbb75() added to avoid some time to call this function with firmware
+TXT.ASM.RGHT() -> used 1 time -> integrated in TXT.ASM.TXTAFF()
+
+bug : quand un lord se rend dans une région en nouveau maître et qu'on est dans une région avec un chateau -> l'armée se place en garnison automatiquement !
